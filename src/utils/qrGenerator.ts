@@ -16,7 +16,11 @@ export const generateQRCode = async (data: string): Promise<{ qrImageUrl: string
 
     await checkAuth();
 
-    const qrBase64 = await QRCode.toDataURL(JSON.stringify(data));
+    const tipado= JSON.parse(data);
+
+    const dataFormateada= `Nombre: ${tipado.nombre} - Cedula: ${tipado.cedula} - Tarjeta profesional: ${tipado.tarjetaProfesional} - Fecha de generación: ${tipado.fecha} - Dirección: ${tipado.direccion} - Número de contrato: ${tipado.numeroContrato} - Motivo de firma: ${tipado.motivoFirma} `;
+
+    const qrBase64 = await QRCode.toDataURL(dataFormateada);
 
     const base64Data = qrBase64.split(',')[1];
 

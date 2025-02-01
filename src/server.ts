@@ -30,10 +30,7 @@ app.post('/api/document/sign', validateDocument, async (req: express.Request, re
 
     res.json({
       isError: false,
-      data: {
-        qrImageUrl,
-        qrBase64
-      }
+      url_imagen:qrImageUrl
     });
   } catch (error) {
     console.error('Error processing document:', error);
